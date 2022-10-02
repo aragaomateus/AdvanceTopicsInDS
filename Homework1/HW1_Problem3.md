@@ -1,4 +1,6 @@
 # Problem 3 - Which Algorithm is Better? 10 points
+- Mateus Silva Aragao , msa8779
+
 You want to compare two algorithms for document retrieval. You need to answer this problem manually, showing explicit calculations. The ground truth and performance of the two algorithms is shown below for 100 samples (with relevant being positive and irrelevant being negative class): 
 
 **1. Create confusion matrix for the two algorithms showing TP, FP, FN, TN. Note you need to compare ground truth labels from reference with corresponding labels from different algorithms to count these quantities. Follow the example discussed in class.** 
