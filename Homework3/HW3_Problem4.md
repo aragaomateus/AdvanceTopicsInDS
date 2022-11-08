@@ -10,13 +10,15 @@ References
 
 ***Answer:***
 
-Weakly supervisision is using supervision with noisy labels. The mahajan paper accomplishes this by using hashtags to label the data. Semi-supervised is when some of the data is labeled but other data isn't. The Yalinz does this by seperating the dataset into D, a dataset with only labeled data, and U a dataset with only unlabeled data.
+Weakly supervisision is using supervision with noisy labels. The Mahajan paper accomplishes this by using hashtags to label the data. Semi-supervised is when some of the data is labeled but other data isn't. The Yalinz does this by seperating the dataset into D, a dataset with only labeled data, and U a dataset with only unlabeled data.
 
 
 
 2. These questions are based on the paper by Mahajan et al.
 (a) Are the model trained using hashtags robust against noise in the labels ? What experiments were done in the paper to study this and what was the finding ? Provide numbers from the paper to support your answer. (2)
+
 ***Answer:***
+
 The Mahajan paper claims that the model trained using hashtags are robust against noise in the labels. The authors randomly replaced p% of the hashtags in the Instagrams dataset with other hashtags. They found that a noise level of p = 10% leads to a loss of less than 1% in classification accuracy, and at p = 25% label noise, the reduction in accuracy is around 2%. These results suggest that label noise may be a limited issue if networks are 
 
 (b) Why is resampling of hashtag distribution important during pretraining for transfer learning ?
