@@ -10,7 +10,7 @@ References
 
 ***Answer:***
 
-Weakly supervisision is using supervision with noisy labels. The Mahajan paper accomplishes this by using hashtags to label the data. Semi-supervised is when some of the data is labeled but other data isn't. The Yalinz does this by seperating the dataset into D, a dataset with only labeled data, and U a dataset with only unlabeled data.
+Weak supervision is using learns with unclear noisy labels. The Mahajan paper accomplishes this by using hashtags to label the data. Semi-supervised is when some of the data is labeled and some data isn't. The Yalinz accomplishes this by separating the dataset into D, a dataset with only labeled data, and U a dataset with only unlabeled data.
 
 
 
@@ -19,14 +19,13 @@ Weakly supervisision is using supervision with noisy labels. The Mahajan paper a
 
 ***Answer:***
 
-The Mahajan paper claims that the model trained using hashtags are robust against noise in the labels. The authors randomly replaced p% of the hashtags in the Instagrams dataset with other hashtags. They found that a noise level of p = 10% leads to a loss of less than 1% in classification accuracy, and at p = 25% label noise, the reduction in accuracy is around 2%. These results suggest that label noise may be a limited issue if networks are 
+The Mahajan paper claims that the model trained using hashtags are robust against noise in the labels. The authors randomly replaced p% of the hashtags in the Instagrams dataset with other hashtags. They found that a noise level of p = 10% leads to a loss of less than 1% in classification accuracy, and at p = 25% label noise, the reduction in accuracy is around 2%. These results suggest that label noise may be a limited issue.
 
 (b) Why is resampling of hashtag distribution important during pretraining for transfer learning ?
 
 ***Answer:***
 
-hashtags are governed by a Zipfian distribution. Prior studies in language modeling found that resampling Zipfian distributions reduces
-the impact of the head of the word distribution on the overall training loss. resampling from the distribution is important to obtain good transfer to ImageNet image-classification tasks. using uniform or square-root sampling leads to an accuracy improvement of 5 to 6% irrespective of the number of ImageNet classes in the transfer task
+Hashtag's popularity distribution in social media is described by a Zipfian distribution. Prior studies in language modeling found that resampling Zipfian distributions reduce the impact of the head of the word distribution on the overall training loss. Resampling from the distribution is important to obtain a good transfer to ImageNet image-classification tasks. Using uniform or square-root sampling gives an accuracy improvement of 5 to 6% regardless of the number of ImageNet classes in the transfer task
 
 3. These questions are based on the paper by Yalzin et al.
 
@@ -35,27 +34,24 @@ teacher model ? Explain why teacher-student modeling is a type of distillation t
 
 ***Answer:***
 
-We use a teacher-student model since it produces a better model when we have fixed complexity. The student model leverages the teacher model by be trained on the output of the teacher model. The process of distalation is to compress a large model into a smaller once. A teacher-student model is a form of distallation because the teacher model is training on unlabeled data, and our student model is then trained on the teacher's predictions in order to mimic the teacher model. So we get the same effect with much less need time and computational power.
+We use a teacher-student model since it delivers a more suitable model when we have set complexity. The student model leverages the teacher model by being trained on the outcome of the teacher model. The process of distillation is to squeeze a large model into a smaller one. A teacher-student model is a setup of distillation because the teacher model is trained on unlabeled data, and our student model is then trained on the teacher's predictions to imitate the teacher model. So we get the same result with considerably less time and computational power.
 
 (b) What are the parameters K and P in stage 2 of the approach where unlabeled images are assigned classes using teacher network ? What was the idea behind taking P > 1 ? Explain in your own words. (2+2)
 
 ***Answer:***
 
-K is how many examples we should be selecting from U for each label.
-
-P is how many classes we want to save for each image.
-
-The reason for choosing P > 1 is that it is difficult to properly identify our tail classes, so we need to ensure P > 1 so that they appear in our new dataset. 
+K stands for how many instances we should be selecting from U per label. P stands for how many classes we wish to hold per image.
+The choice of P > 1 is that it is hard to properly identify our tail classes, so we must guarantee P > 1 so that they emerge in our unexplored dataset. 
 
 
 (c) Explain how a new labeled dataset is created using unlabeled images ? Can an image in this new dataset belong to more than one class ? Explain. (2+2)
 
 ***Answer:***
 
-We train the teacher model using the initial unlabeled data. Then the outputs from this model are used to create a new labeled dataset. There can be multiple labels if a image belongs to the top K images for multiple classes. 
+We train the teacher model utilizing the initial unlabeled data. Then our results from the model are utilized to assemble a fresh labeled dataset. There can be numerous labels if a picture belongs to the highest K pictures for multiple classes. 
 
 (d) Refer to Figure 5 in the paper. Why does the accuracy of the student model first improves as we increase the value of K and then decreases ? (2)
 
 ***Answer:***
 
-Accuracy first increases k due to increase in diversity as well as hardness of examples. But after a certain point these is too much noise and our performance drops.  
+The accuracy will first increase K due to the gain in diversity as well as the complexity of instances. Though after a specific point, there is considerable amount of noise, and our performance decreases.
